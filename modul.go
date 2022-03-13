@@ -1,48 +1,65 @@
 package moduleProject
 
 import "fmt"
+import "strings"
 
+
+func (struk Strukpembayaran) GrandOpening(toko string) {
+	fmt.Println("Thank You for shopping at", toko," Shop. Hope you are satisfied with our service Mr/Mrs", struk.Name)
+}
 // function parameter
 
-func Welcome(nama, jawaban string) {
-	fmt.Println("Selamat Datang di Lapak Kami, Apakah anda ingin berbelanja(Y/N)")
-	fmt.Println(&jawaban)
-        if jawaban== "Y"{
-	fmt.Println("Silahkan masukkan nama Anda")
+func Welcome (nama string) {
+	fmt.Println("Hai Mr/Mrs")
+	fmt.Println("Please enter your name")
 	fmt.Scanln(&nama)
-	fmt.Printf("Hai kak %q, silahkan untuk melihat lihat produk kami\n",nama)
-		} else {
-	fmt.Println("Mohon maaf kami tidak melayani peminta minta")
-		}
+	fmt.Printf("Please see our products Mr/Mrs %s\n",nama)
+
 }
 //function variadic
-func ItemPakaian(nama string, pilihanBaju... string){
-	var bajuAsstring = strings.Join(pilihanBaju,",")
+func ItemPakaian (nama string, pilihanBaju... string){
+	var bajuAsstring = strings.Join (pilihanBaju,",")
 	fmt.Printf("Hello Mr/Mrs %s\n", nama)
 	fmt.Printf("This is a selection of clothes in our shop %s\n", bajuAsstring)
 }
 //function multiple return
-func ProfitSale(harga, hargaPokok float64) (float64, float64) {
+func ProfitSale (harga, hargaPokok int) (int, int) {
 	keuntungan := harga - hargaPokok
-	persentaseKeuntungan := (keuntungan / hargaPokok) * 100
-	return keuntungan, persentaseKeuntungan
+	diskon := (10/100) * hargaPokok
+	return keuntungan, diskon
 }
 // anonymousstruct
-func Pembayaran() {
-	Bayar := struct {
-		Diskon float64
-		Pay float64
+func AlamatToko () {
+	Addrres := struct {
+		NamaToko string
+		AddrresToko string
 	}{
-		Diskon: 20000,
-		Pay: 200000,
+		NamaToko: "Berkah",
+		AddrresToko: "Jl.Soekarno Hatta No.1" ,
 	}
-	if Bayar.Pay > 100000{
-
-		fmt.Println("Selamat Anda Mendapat Potongan Harga", Bayar.Diskon, "Jumlah yang dibayarkan", (Bayar.Pay-Bayar.Diskon))
-	} else {
-		fmt.Println("Maaf anda tidak mendapat ptongan harga, Jumlah yang dibayarkan", Bayar.Pay)
-	}
+		fmt.Println("Welcome to ", Addrres.NamaToko,"Shop which is located at", Addrres.AddrresToko)	
 }
 
+// defer
+func Selesai (){
+	defer fmt.Println("terimakasih sudah berbelanja")
+	fmt.Println("==================================")
+	fmt.Println("==================================")
+	fmt.Println("==================================")	
+}
 
+//Struct
+func CustomerData(){
+	Pelanggan1 := DataPelanggan {
+		Nama:         "Muhammad Iqbal",
+		Alamat : "Padang",
+		Umur:         25,
+		Pekerjaan:        "Staf Operasional dan Pembayaran",
+	}
+	fmt.Println("Data Pelanggan>>>>>>>>>>>>>>>>>>>>")
+	fmt.Println("Nama		:",Pelanggan1.Nama)
+	fmt.Println("Alamat		:",Pelanggan1.Alamat)
+	fmt.Println("Umur		:",Pelanggan1.Umur)
+	fmt.Println("Pekerjaan	:",Pelanggan1.Pekerjaan)
 
+}
