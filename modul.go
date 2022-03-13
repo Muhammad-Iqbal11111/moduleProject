@@ -36,7 +36,7 @@ func Pembayaran() {
 		Diskon: 20000,
 		Pay: 200000,
 	}
-	if Pembayaran.Pay > 100000{
+	if Bayar.Pay > 100000{
 
 		fmt.Println("Selamat Anda Mendapat Potongan Harga", Bayar.Diskon, "Jumlah yang dibayarkan", (Bayar.Pay-Bayar.Diskon))
 	} else {
