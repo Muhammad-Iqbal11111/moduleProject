@@ -42,3 +42,9 @@ func Pembayaran() {
 		fmt.Println("Maaf anda tidak mendapat ptongan harga, Jumlah yang dibayarkan", Bayar.Pay)
 	}
 }
+
+func (struk Strukpembayaran) grandOpening(toko string) {
+	fmt.Println("terimakasih telah berbelanja di toko ", toko, "semoga senang dengan layanan kami", struk.Nama)
+}
+
+
