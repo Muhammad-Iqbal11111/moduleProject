@@ -6,6 +6,7 @@ import "fmt"
 
 func Welcome(nama, jawaban string) {
 	fmt.Println("Selamat Datang di Lapak Kami, Apakah anda ingin berbelanja(Y/N)")
+	fmt.Println(&jawaban)
         if jawaban== "Y"{
 	fmt.Println("Silahkan masukkan nama Anda")
 	fmt.Scanln(&nama)
